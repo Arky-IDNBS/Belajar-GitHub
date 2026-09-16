@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arky Tsabit Athaya // Cyber Portfolio</title>
+    <!-- Google Fonts: Share Tech Mono -->
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #050d05;
+            color: #00ff66;
+            font-family: 'Share Tech Mono', monospace;
+            overflow-x: hidden;
+        }
+
+        /* Matrix Background Canvas */
+        canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.15;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        header {
+            border-bottom: 1px dashed #00ff66;
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            text-shadow: 0 0 8px #00ff66;
+        }
+
+        .status {
+            font-size: 0.9rem;
+            color: #00aa44;
+        }
+
+        .hero {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 0 0 15px #00ff66;
+            letter-spacing: 2px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #88ffbb;
+            margin-bottom: 30px;
+        }
+
+        .terminal-box {
+            background: rgba(0, 20, 0, 0.8);
+            border: 1px solid #00ff66;
+            box-shadow: 0 0 20px rgba(0, 255, 102, 0.2);
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 40px;
+            text-align: left;
+        }
+
+        .terminal-header {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #003311;
+            padding-bottom: 10px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #00ff66;
+            display: inline-block;
+            box-shadow: 0 0 5px #00ff66;
+        }
+
+        .dot.yellow { background: #ffaa00; box-shadow: 0 0 5px #ffaa00; }
+        .dot.red { background: #ff3333; box-shadow: 0 0 5px #ff3333; }
+
+        .terminal-body {
+            line-height: 1.6;
+        }
+
+        .command {
+            color: #ffffff;
+        }
+
+        .output {
+            color: #00ff66;
+            margin-bottom: 10px;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .btn {
+            background: transparent;
+            color: #00ff66;
+            border: 1px solid #00ff66;
+            padding: 12px 25px;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            box-shadow: 0 0 5px rgba(0, 255, 102, 0.2);
+        }
+
+        .btn:hover {
+            background: #00ff66;
+            color: #050d05;
+            box-shadow: 0 0 20px #00ff66;
+        }
+
+        footer {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #007733;
+            border-top: 1px dashed #003311;
+            padding-top: 20px;
+        }
+
+        /* Glitch effect on hover */
+        .glitch:hover {
+            animation: glitch 0.3s infinite;
+        }
+
+        @keyframes glitch {
+            0% { transform: translate(0) }
+            20% { transform: translate(-2px, 2px) }
+            40% { transform: translate(-2px, -2px) }
+            60% { transform: translate(2px, 2px) }
+            80% { transform: translate(2px, -2px) }
+            100% { transform: translate(0) }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Matrix Rain Effect Canvas -->
+    <canvas id="matrix"></canvas>
+
+    <div class="container">
+        <header>
+            <div class="logo">root@arky-tsabit:~#</div>
+            <div class="status">[SECURE_CONNECTION_ACTIVE]</div>
+        </header>
+
+        <main>
+            <section class="hero">
+                <h1 class="glitch">Arky Tsabit Athaya</h1>
+                <p>&lt; Cybersecurity Enthusiast &amp; Web Developer /&gt;</p>
+            </section>
+
+            <div class="terminal-box">
+                <div class="terminal-header">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                </div>
+                <div class="terminal-body">
+                    <p><span class="command">visitor@arky:~$</span> whoami</p>
+                    <p class="output">> Arky Tsabit Athaya. Passionate in network security, penetration testing, and crafting robust web applications.</p>
+                    
+                    <p><span class="command">visitor@arky:~$</span> cat skills.txt</p>
+                    <p class="output">> [ Ethical Hacking, Linux Administration, HTML/CSS/JS, Python, Network Defense ]</p>
+                    
+                    <p><span class="command">visitor@arky:~$</span> status</p>
+                    <p class="output">> System operational. Ready for new challenges.</p>
+                </div>
+            </div>
+
+            <div class="btn-group">
+                <a href="mailto:email@example.com" class="btn">[ CONTACT_ME ]</a>
+                <a href="#projects" class="btn">[ VIEW_PROJECTS ]</a>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Arky Tsabit Athaya. All rights reserved. // Stay Secure.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Matrix Rain Background Animation
+        const canvas = document.getElementById('matrix');
+        const ctx = canvas.getContext('2d');
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()*&^%+-/~[]{};<>?';
+        const fontSize = 14;
+        let columns = canvas.width / fontSize;
+
+        const drops = [];
+        for (let i = 0; i < columns; i++) {
+            drops[i] = 1;
+        }
+
+        function drawMatrix() {
+            ctx.fillStyle = 'rgba(5, 13, 5, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = '#00ff66';
+            ctx.font = fontSize + 'px monospace';
+
+            for (let i = 0; i < drops.length; i++) {
+                const text = characters.charAt(Math.floor(Math.random() * characters.length));
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+
+        setInterval(drawMatrix, 33);
+    </script>
+</body>
+</html>
